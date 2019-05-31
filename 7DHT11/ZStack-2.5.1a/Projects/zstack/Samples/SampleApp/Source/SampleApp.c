@@ -442,12 +442,12 @@ void SampleApp_Send_P2P_Message( void )
   humidity[0] = shidu_shi+0x30;
   humidity[1] = shidu_ge+0x30;
   humidity[2] = '\0';
-  //将数据整合后方便发给协调器显示
+
   osal_memcpy(strTemp, temp, 2); 
   osal_memcpy(&strTemp[2], "  ", 2);
   osal_memcpy(&strTemp[4], humidity, 3);
   
-  //获得的温湿度通过串口输出到电脑显示
+  //获得的温湿度通过串口输出到树莓派显示
   HalUARTWrite(0, "T&H:", 4);
   HalUARTWrite(0, strTemp, 6);
   HalUARTWrite(0, "\n",1);
